@@ -4,7 +4,7 @@ import '@splidejs/splide/css';
 import { HashtagIcon, HeartIcon } from "@heroicons/react/24/solid";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import Title from "./utils/Title";
-// import { truncate } from "lodash";
+import { truncate } from "lodash";
 
 const Stories = ({ story: { title, news } }) => {
     const splideOptions = {
@@ -56,7 +56,7 @@ const Stories = ({ story: { title, news } }) => {
                   </div>
                   <div className="grid items-center justify-items-start px-4">
                     <h1 className="text-base font-semibold lg:text-sm">{val.title}</h1>
-                    <p className="text-sm text-justify lg:text-xs">{val.text}</p>
+                    <p className="text-sm text-justify lg:text-xs">{truncate(val.text, {length: 175})}</p>
                   </div>
                   <div className="flex items-center justify-center px-4 w-full">
                     <a href={val.url} target="_blank" role={"button"} className="w-full bg-gradient-to-b from-slate-900 to-black shadow-md shadow-black text-center text-slate-100 py-1.5 button-theme">{val.btn}</a>
