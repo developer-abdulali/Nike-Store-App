@@ -25,7 +25,7 @@ const Footer = ({ footerAPI: { titles, links } }) => {
           </div>
           <div className="mt-5 text-center">
             <p className="text-sm md:text-center">
-              Copyright &copy; Nike Shoes Store
+              Copyright &copy; Nike Shoes Store | Developer-Abdul Ali
             </p>
           </div>
         </div>
