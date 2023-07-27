@@ -28,6 +28,7 @@ const Cart = () => {
           className={`blur-effect-theme h-screen max-w-xl w-full absolute right-0`}
         >
           <CartCount onCartToggle={onCartToggle} />
+          {/* <CartCount /> */}
           <CartEmpty />
           <CardItem />
         </div>
