@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     cartState: false,
+    cartItems: []  // like database
 };
 const CartSlice = createSlice({
     initialState,
@@ -11,9 +12,18 @@ const CartSlice = createSlice({
         },
         setCloseCart: (state, action) => {
             state.cartState = action.payload.cartState;
+        },
+        setAddItemtoCard: (state, action) =>{
+            const itemIndex = state.cartItems.findIndex((item) => item.id === action.payload.id);
+            if(itemIndex >= 0){
+                state.cartItems[itemIndex].cartQuanity += 1;
+            } else{
+                const temp = {...action.payload, cartQuanity: 1}
+                state.cartItems.push(temp)
+            }
         }
     }
 });
-export const { setOpenCart, setCloseCart } = CartSlice.actions;
+export const { setOpenCart, setCloseCart, setAddItemtoCard } = CartSlice.actions;
 export const selectCartState = (state) => state.cart.cartState;
 export default CartSlice.reducer;
