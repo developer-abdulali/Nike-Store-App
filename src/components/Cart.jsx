@@ -8,6 +8,9 @@ import { selectCartState, setCloseCart } from "../app/CartSlice.js";
 const Cart = () => {
   const dispatch = useDispatch();
   const ifCartState = useSelector(selectCartState);
+  // const cartItems = useSelector(selectCartItems)
+  // console.log(cartItems)
+
   const onCartToggle = () => {
     dispatch(
       setCloseCart({
