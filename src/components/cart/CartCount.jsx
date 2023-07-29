@@ -13,9 +13,9 @@ const CartCount = ({ onCartToggle, totalQty }) => {
             <ChevronDoubleLeftIcon className="w-5 h-5 text-slate-900 hover:text-orange-500 stroke-[2]" />
           </div>
           <div className="grid items-center">
-            <h1 className="text-base font-medium text-slate-900 ">
-              Your Cart
-              <span className="bg-theme-cart rounded px-1 py-0.5 text-slate-100 font-normal text-xs">
+            <h1 className="text-base font-medium text-slate-900">
+              Your Cart 
+              <span className="bg-theme-cart rounded px-1 py-0.5 text-slate-100 font-normal text-xs ml-1">
                 ({totalQty} Items)
               </span>
             </h1>
