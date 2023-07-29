@@ -20,6 +20,11 @@ const Item = ({
     const item = { id, title, text, img, color, shadow, rating, price };
     dispatch(setAddItemtoCard(item));
   };
+  const onCartToggle = () => {
+    dispatch(setOpenCart({
+      cartState: true
+    }))
+  }
 
   return (
     <>
@@ -60,7 +65,7 @@ const Item = ({
             <ShoppingBagIcon className="icon-style text-slate-900" />
           </button>
           <button
-            type="button"
+            type="button" onClick={()=> {onAddtoCart(); onAddtoCart();}}
             className="bg-white/90 blur-effect-theme button-theme px-2 py-1 shadow shadow-sky-200 text-sm text-black"
           >
             {btn}
