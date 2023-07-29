@@ -18,7 +18,7 @@ const Footer = ({ footerAPI: { titles, links } }) => {
                 {list?.map((link, i) => (
                   <li
                     key={i}
-                    className="text-sm sm:text-xs cursor-pointer hover:text-red-200 transition-all duration-300"
+                    className="text-sm sm:text-xs cursor-pointer hover:text-white transition-all duration-300"
                   >
                     {link.link}
                   </li>
