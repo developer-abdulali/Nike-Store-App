@@ -16,7 +16,10 @@ const Footer = ({ footerAPI: { titles, links } }) => {
             {links?.map((list, i) => (
               <ul key={i} className="grid items-center gap-1">
                 {list?.map((link, i) => (
-                  <li key={i} className="text-sm sm:text-xs cursor-pointer hover:text-red-200 transition-all duration-300">
+                  <li
+                    key={i}
+                    className="text-sm sm:text-xs cursor-pointer hover:text-red-200 transition-all duration-300"
+                  >
                     {link.link}
                   </li>
                 ))}

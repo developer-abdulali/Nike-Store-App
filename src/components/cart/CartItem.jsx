@@ -65,6 +65,9 @@ const CardItem = ({
               alt={`img/cart-item/${id}}`}
               className="w-36 h-auto object-fill lg:w-28"
             />
+            <div className="absolute right-1 top-1 blur-theme-effect bg-white/80 text-xs text-black px-1 rounded">
+              ${price}
+            </div>
           </div>
           <div className="grid items-center gap-4">
             <div className="grid items-center leading-none">

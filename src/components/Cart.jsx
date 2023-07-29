@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectCartItems,
   selectCartState,
-  // selectTotalAmount,
-  // selectTotalQTY,
-  // setClearCartItems,
+  selectTotalAmount,
+  selectTotalQTY,
   setCloseCart,
-  // setGetTotals
+  setGetTotals,
 } from "../app/CartSlice.js";
 import CartCount from "./cart/CartCount";
 import CartEmpty from "./cart/CartEmpty";
@@ -17,13 +16,11 @@ const Cart = () => {
   const dispatch = useDispatch();
   const ifCartState = useSelector(selectCartState);
   const cartItems = useSelector(selectCartItems);
-  // const totalAmount = useSelector(selectTotalAmount);
-  // const totalQTY = useSelector(selectTotalQTY);
-
-  // console.log(cartItems)
+  const totalAmount = useSelector(selectTotalAmount);
+  const totalQTY = useSelector(selectTotalQTY);
 
   useEffect(() => {
-    // dispatch(setGetTotals())
+    dispatch(setGetTotals());
   }, [cartItems, dispatch]);
 
   const onCartToggle = () => {
@@ -33,11 +30,6 @@ const Cart = () => {
       })
     );
   };
-
-  // const onClearCartItems = () => {
-  //   dispatch(setClearCartItems())
-  // }
-
   return (
     <>
       <div
@@ -54,8 +46,7 @@ const Cart = () => {
               : "opacity-0 invisible translate-x-8"
           }`}
         >
-          {/* <CartCount totalQTY={totalQTY} onCartToggle={onCartToggle} onClearCartItems={onClearCartItems} /> */}
-          <CartCount onCartToggle={onCartToggle} />
+          <CartCount onCartToggle={onCartToggle} totalQty={totalQTY} />
           {cartItems?.length === 0 ? (
             <CartEmpty onCartToggle={onCartToggle} />
           ) : (
@@ -71,7 +62,9 @@ const Cart = () => {
                   <h1 className="text-base font-semibold uppercase">
                     SubTotal
                   </h1>
-                  {/* <h1 className="text-sm rounded bg-theme-cart text-slate-100 px-1 py-0.5">${totalAmount}</h1> */}
+                  <h1 className="text-sm rounded bg-theme-cart text-slate-100 px-1 py-0.5">
+                    ${totalAmount}
+                  </h1>
                 </div>
                 <div className="grid items-center gap-2">
                   <p className="text-sm font-medium text-center">
