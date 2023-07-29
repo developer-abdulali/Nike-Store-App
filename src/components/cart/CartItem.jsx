@@ -1,9 +1,27 @@
 import React from "react";
 import { MinusIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { useDispatch } from "react-redux";
+import { setRemoveItemFromCart } from "../../app/CartSlice";
 
 const CardItem = ({
   item: { id, title, text, img, color, shadow, price, cartQuantity },
 }) => {
+  const dispatch = useDispatch();
+  const onRemoveItem = () => {
+    dispatch(
+      setRemoveItemFromCart({
+        id,
+        title,
+        text,
+        img,
+        color,
+        shadow,
+        price,
+        cartQuantity,
+      })
+    );
+  };
+
   return (
     <>
       <div className="flex items-center justify-between w-full px-5">
@@ -45,10 +63,16 @@ const CardItem = ({
         </div>
         <div className="grid items-center gap-5">
           <div className="grid items-center justify-center">
-            <h1 className="text-lg lg:text-base text-slate-900 font-medium">{price * cartQuantity}</h1>
+            <h1 className="text-lg lg:text-base text-slate-900 font-medium">
+              {price * cartQuantity}
+            </h1>
           </div>
           <div className="grid items-center justify-center">
-            <button type="button" className="bg-theme-cart rounded p-1 lg:p-0.5 grid items-center justify-items-center">
+            <button
+              type="button"
+              onClick={onRemoveItem}
+              className="bg-theme-cart rounded p-1 lg:p-0.5 grid items-center justify-items-center"
+            >
               <TrashIcon className="w-5 h-5 text-white" />
             </button>
           </div>
